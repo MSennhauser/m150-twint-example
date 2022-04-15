@@ -26,11 +26,11 @@ import { AuthInterceptor } from './auth.interceptor';
     FlexModule
   ],
   providers: [
-    {
+/*     {
       provide : HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi   : true,
-    }
+    } */
   ],
   bootstrap: [AppComponent]
 })
