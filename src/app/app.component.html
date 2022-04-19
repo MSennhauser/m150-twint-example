@@ -1,16 +1,1 @@
-<div fxLayout="column" fxFlex="100">
-  <div fxLayout="row" fxFlex="100" fxLayoutAlign="center">
-    <mat-form-field>
-      <mat-label>Währung</mat-label>
-      <input matInput [formControl]="currencyCtrl">
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Betrag</mat-label>
-      <input matInput [formControl]="amountCtrl">
-    </mat-form-field>
-
-  </div>
-  <div>
-    <button mat-flat-button (click)="onPay()">Bezahlen</button>
-  </div>
-</div>
+<router-outlet></router-outlet>

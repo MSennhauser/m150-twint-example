@@ -1,7 +1,7 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
-import { Observable, pipe, Subscriber, take } from 'rxjs';
+import { FormControl } from '@angular/forms';
+import { take } from 'rxjs';
 
 // Datatrans URL for payment
 interface TransactionLocation {
@@ -22,15 +22,14 @@ interface TransactionSettings {
 }
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-payment',
+  templateUrl: './payment.component.html',
+  styleUrls: ['./payment.component.scss']
 })
-export class AppComponent implements OnInit {
-  private REFNO = 'Twint-example';
-
-  currencyCtrl = new FormControl('CHF');
+export class PaymentComponent implements OnInit {
+  currencyCtrl = new FormControl({value: 'CHF', disabled: true});
   amountCtrl = new FormControl('100');
+  refCtrl = new FormControl('Twint-Beispiel');
 
   constructor(private httpClient: HttpClient){
 
@@ -42,7 +41,7 @@ export class AppComponent implements OnInit {
   onPay(): void {
     const settings: TransactionSettings = { 
       currency: 'CHF',
-      refno: this.REFNO,
+      refno: this.refCtrl.value,
       amount: this.amountCtrl.value as number,
       paymentMethods: ['TWI'], // TWI = Twint
       redirect: {
