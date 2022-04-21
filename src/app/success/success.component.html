@@ -1,1 +1,9 @@
-<p>Bezahlung erfolgreich!</p>
+<mat-card fxLayout="column" fxLayoutGap="20px">
+    <mat-card-header>
+      <mat-card-title>Transaktion erfolgreich!</mat-card-title>
+    </mat-card-header>
+  
+    <div fxFlex="row" fxLayoutAlign="end end">
+      <button mat-raised-button color="primary" [routerLink]="['/payment']">Zurück</button>
+    </div>
+  </mat-card>
